@@ -69,7 +69,7 @@ class Battle:
                     except ValueError:
                         pass
                 else:
-                    j = i - len(unit_list) - 2
+                    j = i - len(unit_list) - 1
                     try:
                         for each in range(0, int(row['Starting Units'])):
                             self.defender.add_unit(copy.deepcopy(unit_list[j]))
@@ -93,6 +93,7 @@ class Battle:
         attacker_casualties = self.attacker.remove_units()
         defender_casualties = self.defender.remove_units()
         self.report_combat()
+
         print(f"Round {self.active_round} Casualties:")
         print(f"  Attacker: {attacker_casualties[0]}, {attacker_casualties[1]}")
         print(f"  Defender: {defender_casualties[0]}, {defender_casualties[1]}")
@@ -110,11 +111,27 @@ class Battle:
         new_column = f"Round {self.active_round}"
         if fieldnames is not None: fieldnames.append(new_column)
 
+        row_counter = 0
         for row in rows:
             # TODO: fix this logic
-            row[new_column] = 1
+            i = 0
+            if row_counter < len(unit_list):
+                for unit in self.attacker.unit_list:
+                    if unit.name.lower() == row['Unit'].lower():
+                        i += 1
+            else:
+                for unit in self.defender.unit_list:
+                    if unit.name.lower() == row['Unit'].lower():
+                        i += 1
 
-        # Step 3: Write back to the same file
+            if i > 0:
+                row[new_column] = i
+            else:
+                row[new_column] = ''
+
+            row_counter += 1
+
+        # Step 3: Write back to the same output file
         with open(self.output_file, "w", newline="", encoding="utf-8") as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
@@ -148,7 +165,7 @@ unit_list = [unit_infantry, unit_artillery, unit_mech_infantry, unit_tank, unit_
              unit_destroyer, unit_submarine, unit_transport]
 
 new_battle = Battle('Army_List.csv', 'Germany', 'USSR',
-              PriorityTypes.ATTACK, PriorityTypes.COST,
-              PriorityTypes.DEFENSE, PriorityTypes.COST)
+              PriorityTypes.COST, PriorityTypes.ATTACK,
+              PriorityTypes.COST, PriorityTypes.DEFENSE)
 
 new_battle.full_battle()

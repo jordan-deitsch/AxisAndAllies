@@ -1,31 +1,30 @@
-Attacker Unit,Starting Units,Round Killed
-Infantry,3,
-Artillery,2,
-Mechanized Infantry,,
-Tank,,
-AA,,
-Fighter,2,
-Tactical Bomber,1,
-Strategic Bomber,,
-Battleship,,
-Aircraft Carrier,,
-Cruiser,,
-Destroyer,,
-Submarine,,
-Transport,,
-,,
-Defender Unit,,
-Infantry,5,
-Artillery,2,
-Mechanized Infantry,,
-Tank,,
-AA,1,
-Fighter,1,
-Tactical Bomber,,
-Strategic Bomber,,
-Battleship,,
-Aircraft Carrier,,
-Cruiser,,
-Destroyer,,
-Submarine,,
-Transport,,
+Unit,Starting Units
+Infantry,20
+Artillery,1
+Mech_Infantry,1
+Tank,1
+AA,1
+Fighter,1
+Tact_Bomber,1
+Strat_Bomber,1
+Battleship,1
+AC_Carrier,1
+Cruiser,1
+Destroyer,1
+Submarine,1
+Transport,0
+,
+Infantry,20
+Artillery,1
+Mech_Infantry,1
+Tank,1
+AA,1
+Fighter,1
+Tact_Bomber,1
+Strat_Bomber,1
+Battleship,1
+AC_Carrier,1
+Cruiser,1
+Destroyer,1
+Submarine,1
+Transport,0

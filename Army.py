@@ -56,6 +56,8 @@ class Army:
                 num_killed += 1
                 cost_killed += unit.cost
                 self.unit_list.remove(unit)
+
+        # TODO: add logic for transports (can't be hit, just lost at end)
         return num_killed, cost_killed
 
     def clean_combat_data(self):
