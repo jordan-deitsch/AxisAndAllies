@@ -118,3 +118,5 @@ new_battle = Battle('Germany', 'USSR',
               PriorityTypes.DEFENSE, PriorityTypes.COST)
 
 new_battle.full_battle()
+
+# Test comment for git
