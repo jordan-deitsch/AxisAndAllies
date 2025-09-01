@@ -4,32 +4,6 @@ import GameUnit
 import copy
 import csv
 import shutil
-from enum import Enum
-
-class LandTypes(Enum):
-    AA = 0
-    INFANTRY = 1
-    ARTILLERY = 2
-    MECH_INFANTRY = 3
-    TANK = 4
-
-class SeaTypes(Enum):
-    TRANSPORT = 0
-    SUBMARINE = 1
-    DESTROYER = 2
-    CRUISER = 3
-    AC_CARRIER = 4
-    BATTLESHIP = 5
-
-class AirTypes(Enum):
-    FIGHTER = 0
-    TACT_BOMBER = 1
-    STRAT_BOMBER = 2
-
-class PriorityTypes(Enum):
-    ATTACK = 0
-    DEFENSE = 1
-    COST = 2
 
 
 class Battle:
@@ -142,22 +116,21 @@ class Battle:
         while (len(self.attacker.unit_list) > 0) and (len(self.defender.unit_list) > 0):
             self.combat_round()
 
-
 # Declare instance of each unit types
-unit_infantry = GameUnit.Unit(LandTypes.INFANTRY, 3, 1, 2, 1, 1, False)
-unit_artillery = GameUnit.Unit(LandTypes.ARTILLERY, 4, 2, 2, 1, 1, False)
-unit_mech_infantry = GameUnit.Unit(LandTypes.MECH_INFANTRY, 4, 1, 2, 2, 1, False)
-unit_tank = GameUnit.Unit(LandTypes.TANK, 6, 3, 3, 2, 1, False)
-unit_aa = GameUnit.Unit(LandTypes.AA, 5, 0, 0, 1, 1, True)
-unit_fighter = GameUnit.Unit(AirTypes.FIGHTER, 10, 3, 4, 4, 1, False)
-unit_tact_bomber = GameUnit.Unit(AirTypes.TACT_BOMBER, 11, 3, 3, 4, 1, False)
-unit_strat_bomber = GameUnit.Unit(AirTypes.STRAT_BOMBER, 12, 4, 1, 6, 1, False)
-unit_battleship = GameUnit.Unit(SeaTypes.BATTLESHIP, 20, 4, 4, 2, 2, True)
-unit_ac_carrier = GameUnit.Unit(SeaTypes.AC_CARRIER, 16, 0, 2, 2, 2, False)
-unit_cruiser = GameUnit.Unit(SeaTypes.CRUISER, 12, 3, 3, 2, 1, True)
-unit_destroyer = GameUnit.Unit(SeaTypes.DESTROYER, 8, 2, 2, 2, 1, False)
-unit_submarine = GameUnit.Unit(SeaTypes.SUBMARINE, 6, 2, 1, 2, 1, True)
-unit_transport = GameUnit.Unit(SeaTypes.TRANSPORT, 7, 0, 0, 2, 0, False)
+unit_infantry = GameUnit.Unit(GameUnit.LandTypes.INFANTRY, 3, 1, 2, 1, 1, False)
+unit_artillery = GameUnit.Unit(GameUnit.LandTypes.ARTILLERY, 4, 2, 2, 1, 1, False)
+unit_mech_infantry = GameUnit.Unit(GameUnit.LandTypes.MECH_INFANTRY, 4, 1, 2, 2, 1, False)
+unit_tank = GameUnit.Unit(GameUnit.LandTypes.TANK, 6, 3, 3, 2, 1, False)
+unit_aa = GameUnit.Unit(GameUnit.LandTypes.AA, 5, 0, 0, 1, 1, True)
+unit_fighter = GameUnit.Unit(GameUnit.AirTypes.FIGHTER, 10, 3, 4, 4, 1, False)
+unit_tact_bomber = GameUnit.Unit(GameUnit.AirTypes.TACT_BOMBER, 11, 3, 3, 4, 1, False)
+unit_strat_bomber = GameUnit.Unit(GameUnit.AirTypes.STRAT_BOMBER, 12, 4, 1, 6, 1, False)
+unit_battleship = GameUnit.Unit(GameUnit.SeaTypes.BATTLESHIP, 20, 4, 4, 2, 2, True)
+unit_ac_carrier = GameUnit.Unit(GameUnit.SeaTypes.AC_CARRIER, 16, 0, 2, 2, 2, False)
+unit_cruiser = GameUnit.Unit(GameUnit.SeaTypes.CRUISER, 12, 3, 3, 2, 1, True)
+unit_destroyer = GameUnit.Unit(GameUnit.SeaTypes.DESTROYER, 8, 2, 2, 2, 1, False)
+unit_submarine = GameUnit.Unit(GameUnit.SeaTypes.SUBMARINE, 6, 2, 1, 2, 1, True)
+unit_transport = GameUnit.Unit(GameUnit.SeaTypes.TRANSPORT, 7, 0, 0, 2, 0, False)
 
 unit_list = [unit_infantry, unit_artillery, unit_mech_infantry, unit_tank, unit_aa,
              unit_fighter, unit_tact_bomber, unit_strat_bomber,
@@ -165,7 +138,7 @@ unit_list = [unit_infantry, unit_artillery, unit_mech_infantry, unit_tank, unit_
              unit_destroyer, unit_submarine, unit_transport]
 
 new_battle = Battle('Army_List.csv', 'Germany', 'USSR',
-              PriorityTypes.COST, PriorityTypes.ATTACK,
-              PriorityTypes.COST, PriorityTypes.DEFENSE)
+              GameUnit.PriorityTypes.COST, GameUnit.PriorityTypes.ATTACK,
+              GameUnit.PriorityTypes.COST, GameUnit.PriorityTypes.DEFENSE)
 
 new_battle.full_battle()

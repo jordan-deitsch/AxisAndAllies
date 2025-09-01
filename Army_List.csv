@@ -12,7 +12,7 @@ AC_Carrier,1
 Cruiser,1
 Destroyer,1
 Submarine,1
-Transport,0
+Transport,3
 ,
 Infantry,20
 Artillery,1
@@ -27,4 +27,4 @@ AC_Carrier,1
 Cruiser,1
 Destroyer,1
 Submarine,1
-Transport,0
+Transport,3

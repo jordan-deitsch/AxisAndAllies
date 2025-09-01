@@ -1,4 +1,30 @@
 import random
+from enum import Enum
+
+class LandTypes(Enum):
+    AA = 0
+    INFANTRY = 1
+    ARTILLERY = 2
+    MECH_INFANTRY = 3
+    TANK = 4
+
+class SeaTypes(Enum):
+    TRANSPORT = 0
+    SUBMARINE = 1
+    DESTROYER = 2
+    CRUISER = 3
+    AC_CARRIER = 4
+    BATTLESHIP = 5
+
+class AirTypes(Enum):
+    FIGHTER = 0
+    TACT_BOMBER = 1
+    STRAT_BOMBER = 2
+
+class PriorityTypes(Enum):
+    ATTACK = 0
+    DEFENSE = 1
+    COST = 2
 
 class Unit:
     def __init__(self, unit_type, cost, attack, defense, move, max_hits, opening_fire):
