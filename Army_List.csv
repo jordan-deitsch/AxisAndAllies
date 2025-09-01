@@ -1,0 +1,15 @@
+﻿Unit,Attacker,Defender
+Infantry,3,5
+Artillery,2,2
+Mechanized Infantry,,
+Tank,,
+AA,,1
+Fighter,2,1
+Tactical Bomber,1,
+Strategic Bomber,,
+Battleship,,
+Aircraft Carrier,,
+Cruiser,,
+Destroyer,,
+Submarine,,
+Transport,,
