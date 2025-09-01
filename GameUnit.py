@@ -11,17 +11,18 @@ class Unit:
         self.max_hits = max_hits
         self.hit_points = 0
         self.opening_fire = opening_fire # Boolean if unit allows for opening fire
+        self.roll_value = 0
 
     def roll_attack(self):
-        roll_val = random.randint(1,6)
-        if roll_val <= self.attack:
+        self.roll_value = random.randint(1,6)
+        if self.roll_value <= self.attack:
             return 1
         else:
             return 0
 
     def roll_defense(self):
-        roll_val = random.randint(1,6)
-        if roll_val <= self.defense:
+        self.roll_value = random.randint(1,6)
+        if self.roll_value <= self.defense:
             return 1
         else:
             return 0

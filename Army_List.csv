@@ -1,11 +1,27 @@
-﻿Unit,Attacker,Defender
-Infantry,3,5
-Artillery,2,2
+Attacker Unit,Starting Units,Round Killed
+Infantry,3,
+Artillery,2,
 Mechanized Infantry,,
 Tank,,
-AA,,1
-Fighter,2,1
+AA,,
+Fighter,2,
 Tactical Bomber,1,
+Strategic Bomber,,
+Battleship,,
+Aircraft Carrier,,
+Cruiser,,
+Destroyer,,
+Submarine,,
+Transport,,
+,,
+Defender Unit,,
+Infantry,5,
+Artillery,2,
+Mechanized Infantry,,
+Tank,,
+AA,1,
+Fighter,1,
+Tactical Bomber,,
 Strategic Bomber,,
 Battleship,,
 Aircraft Carrier,,

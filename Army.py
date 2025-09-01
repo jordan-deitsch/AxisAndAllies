@@ -57,3 +57,7 @@ class Army:
                 cost_killed += unit.cost
                 self.unit_list.remove(unit)
         return num_killed, cost_killed
+
+    def clean_combat_data(self):
+        for unit in self.unit_list:
+            unit.roll_value = 0
