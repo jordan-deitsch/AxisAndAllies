@@ -36,17 +36,17 @@ class Battle:
 
             i = 0
             for row in rows:
-                if i < len(unit_list):
+                if i < len(GameUnit.unit_list):
                     try:
                         for each in range(0, int(row['Starting Units'])):
-                            self.attacker.add_unit(copy.deepcopy(unit_list[i]))
+                            self.attacker.add_unit(copy.deepcopy(GameUnit.unit_list[i]))
                     except ValueError:
                         pass
                 else:
-                    j = i - len(unit_list) - 1
+                    j = i - len(GameUnit.unit_list) - 1
                     try:
                         for each in range(0, int(row['Starting Units'])):
-                            self.defender.add_unit(copy.deepcopy(unit_list[j]))
+                            self.defender.add_unit(copy.deepcopy(GameUnit.unit_list[j]))
                     except ValueError:
                         pass
                 i += 1
@@ -89,7 +89,7 @@ class Battle:
         for row in rows:
             # TODO: fix this logic
             i = 0
-            if row_counter < len(unit_list):
+            if row_counter < len(GameUnit.unit_list):
                 for unit in self.attacker.unit_list:
                     if unit.name.lower() == row['Unit'].lower():
                         i += 1
@@ -116,26 +116,7 @@ class Battle:
         while (len(self.attacker.unit_list) > 0) and (len(self.defender.unit_list) > 0):
             self.combat_round()
 
-# Declare instance of each unit types
-unit_infantry = GameUnit.Unit(GameUnit.LandTypes.INFANTRY, 3, 1, 2, 1, 1, False)
-unit_artillery = GameUnit.Unit(GameUnit.LandTypes.ARTILLERY, 4, 2, 2, 1, 1, False)
-unit_mech_infantry = GameUnit.Unit(GameUnit.LandTypes.MECH_INFANTRY, 4, 1, 2, 2, 1, False)
-unit_tank = GameUnit.Unit(GameUnit.LandTypes.TANK, 6, 3, 3, 2, 1, False)
-unit_aa = GameUnit.Unit(GameUnit.LandTypes.AA, 5, 0, 0, 1, 1, True)
-unit_fighter = GameUnit.Unit(GameUnit.AirTypes.FIGHTER, 10, 3, 4, 4, 1, False)
-unit_tact_bomber = GameUnit.Unit(GameUnit.AirTypes.TACT_BOMBER, 11, 3, 3, 4, 1, False)
-unit_strat_bomber = GameUnit.Unit(GameUnit.AirTypes.STRAT_BOMBER, 12, 4, 1, 6, 1, False)
-unit_battleship = GameUnit.Unit(GameUnit.SeaTypes.BATTLESHIP, 20, 4, 4, 2, 2, True)
-unit_ac_carrier = GameUnit.Unit(GameUnit.SeaTypes.AC_CARRIER, 16, 0, 2, 2, 2, False)
-unit_cruiser = GameUnit.Unit(GameUnit.SeaTypes.CRUISER, 12, 3, 3, 2, 1, True)
-unit_destroyer = GameUnit.Unit(GameUnit.SeaTypes.DESTROYER, 8, 2, 2, 2, 1, False)
-unit_submarine = GameUnit.Unit(GameUnit.SeaTypes.SUBMARINE, 6, 2, 1, 2, 1, True)
-unit_transport = GameUnit.Unit(GameUnit.SeaTypes.TRANSPORT, 7, 0, 0, 2, 0, False)
 
-unit_list = [unit_infantry, unit_artillery, unit_mech_infantry, unit_tank, unit_aa,
-             unit_fighter, unit_tact_bomber, unit_strat_bomber,
-             unit_battleship, unit_ac_carrier, unit_cruiser,
-             unit_destroyer, unit_submarine, unit_transport]
 
 new_battle = Battle('Army_List.csv', 'Germany', 'USSR',
               GameUnit.PriorityTypes.COST, GameUnit.PriorityTypes.ATTACK,
